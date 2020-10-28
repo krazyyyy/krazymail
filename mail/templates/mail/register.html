@@ -1,0 +1,43 @@
+{% extends "mail/layout.html" %}
+
+{% block body %}
+
+
+    <section class="section">
+		<div class="main">
+			<div class="intro-section">
+				<h6 class="intro-heading">Welcome</h6>
+				<p class="intro-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe dignissimos officia sint animi voluptatum est praesentium nostrum, iusto earum fugit.</p>
+				<img src="https://res.cloudinary.com/hetfy/image/upload/v1603459311/laptop_hkaxzz.png" alt="Laptop">
+			</div>
+				
+     
+            <form action="{% url 'register' %}" method='POST' >
+                {% csrf_token %}
+			<div class="sign-section">
+				<div class="sign-block">
+					<h3 class="sign-heading">Sign up here</h3>
+					<div class="input-block">
+						<input class="input" placeholder="| &nbsp;Name" type="text" name="name">
+						<input class="input" placeholder="| &nbsp;Email" type="text" name="email">
+						<input class="input" placeholder="| &nbsp;Password" type="password" name="password">
+						<input class="input" placeholder="| &nbsp;Password" type="password" name="confirmation">
+					</div>
+
+					<div class="password-block">
+						<div>
+							<input type="checkbox" name="remember">
+							<label for="remember">Remember me</label>
+						</div>
+
+						<a class="password-link" href="{%url 'login' %}">Already Register..?</a>
+					</div>
+
+					<button type="submit" class="sign-button">Sign Up</button>
+                </div>
+            </form>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

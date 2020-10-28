@@ -1,0 +1,46 @@
+{% extends "mail/layout.html" %}
+
+{% block body %}
+
+<section class="section">
+    {% if message %}
+    <div class="alert alert-danger dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        {{message}}
+    </div>
+    {% endif %}
+    <div class="main">
+        <div class="intro-section">
+            <h6 class="intro-heading">Welcome</h6>
+            <p class="intro-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe dignissimos officia sint animi voluptatum est praesentium nostrum, iusto earum fugit.</p>
+            <img src="https://res.cloudinary.com/hetfy/image/upload/v1603459311/laptop_hkaxzz.png" alt="Laptop">
+        </div>
+            
+ 
+        <div class="sign-section">
+            <div class="sign-block">
+                <h3 class="sign-heading">Sign in</h3>
+                <div class="input-block">
+                        <form action="{% url 'login' %}" method='POST' >
+                            {% csrf_token %}
+                    <input class="input" placeholder="| &nbsp;Email" type="text" name="email">
+                    <input class="input" placeholder="| &nbsp;Password" type="password" name="password"> 
+                </div>
+
+                <div class="password-block">
+                    <div>
+                        <input type="checkbox" name="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+            
+                    <a class="password-link" href="{% url 'register' %}">Do Not have Account..?</a>
+                </div>
+                
+                <button type="submit" class="sign-button">Sign Up</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
