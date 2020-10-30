@@ -11,7 +11,7 @@ from django.db.models import Count
 
 from .models import User, Email
 
-
+@login_required(login_url='/login')
 def index(request):
     if request.user:
         username = request.user
